@@ -2,6 +2,7 @@ package testfuncionales;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class personaTest {
@@ -26,5 +27,19 @@ class personaTest {
 		Persona p = new Persona(100);
 		assertTrue(p.isMayorDeEdad());
 	}
-
+	@Test
+		public void test7() {
+		Assertions.assertThrows(AssertionError.class, () -> {
+			Persona p = new Persona(-1);
+		    p.isMayorDeEdad();
+		});
+	}
+	@Test
+	public void test8() {
+	Assertions.assertThrows(AssertionError.class, () -> {
+		Persona p = new Persona(-100);
+	    p.isMayorDeEdad();
+	});
+}
+	
 }
